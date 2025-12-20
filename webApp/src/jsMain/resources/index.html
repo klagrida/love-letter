@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Letter - A Game of Risk, Deduction, and Luck</title>
+    <meta name="description" content="Play Love Letter, a classic card game of risk, deduction, and luck. Available on all platforms.">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #FFE4E1;
+        }
+
+        #ComposeTarget {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Loading screen */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-emoji {
+            font-size: 72px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loading-title {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            color: #D32F2F;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .loading-subtitle {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #FFB6C1;
+            border-top: 4px solid #D32F2F;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div class="loading-emoji">💌</div>
+        <div class="loading-title">Love Letter</div>
+        <div class="loading-subtitle">A game of risk, deduction, and luck</div>
+        <div class="loading-spinner"></div>
+    </div>
+
+    <canvas id="ComposeTarget"></canvas>
+
+    <script src="loveletter.js"></script>
+    <script>
+        // Hide loading screen when the app is ready
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
