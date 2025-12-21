@@ -1,0 +1,14 @@
+# Default owners for everything in the repo
+* @klagrida
+
+# Shared module
+/shared/ @klagrida
+
+# Platform-specific
+/androidApp/ @klagrida
+/iosApp/ @klagrida
+/desktopApp/ @klagrida
+/webApp/ @klagrida
+
+# CI/CD
+/.github/ @klagrida

@@ -1,0 +1,59 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+out/
+
+# macOS
+.DS_Store
+
+# Android
+local.properties
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# iOS
+iosApp/iosApp.xcodeproj/project.xcworkspace/
+iosApp/iosApp.xcodeproj/xcuserdata/
+iosApp/Pods/
+*.xcuserstate
+
+# Kotlin
+*.kotlin_module
+
+# Web
+node_modules/
+dist/
+
+# Desktop
+*.dmg
+*.msi
+*.deb
+*.exe
+
+# Secrets
+*.keystore
+*.jks
+google-services.json
+GoogleService-Info.plist
+secrets.properties
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
