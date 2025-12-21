@@ -14,6 +14,7 @@ import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.realtime.PostgresAction
 import io.github.jan.supabase.realtime.channel
+import io.github.jan.supabase.realtime.decodeRecord
 import io.github.jan.supabase.realtime.postgresChangeFlow
 import io.github.jan.supabase.realtime.realtime
 import kotlinx.coroutines.flow.Flow
@@ -201,8 +202,8 @@ class GameRepository {
         channel.postgresChangeFlow<PostgresAction.Update>(schema = "public") {
             table = SupabaseConfig.TABLE_ROOMS
             filter = "id=eq.$roomId"
-        }.collect { change ->
-            val roomDto = change.decodeRecord<RoomDto>()
+        }.collect { update ->
+            val roomDto = update.decodeRecord<RoomDto>()
             onUpdate(roomDto.toGameRoom())
         }
 
@@ -215,8 +216,8 @@ class GameRepository {
         channel.postgresChangeFlow<PostgresAction.Update>(schema = "public") {
             table = SupabaseConfig.TABLE_GAMES
             filter = "id=eq.$gameId"
-        }.collect { change ->
-            val gameDto = change.decodeRecord<GameDto>()
+        }.collect { update ->
+            val gameDto = update.decodeRecord<GameDto>()
             val state = json.decodeFromString<GameState>(gameDto.state)
             onUpdate(state)
             _gameUpdates.emit(state)
@@ -240,7 +241,10 @@ class GameRepository {
     }
 
     suspend fun unsubscribe(channelName: String) {
-        client.realtime.removeChannel(channelName)
+        val channel = client.realtime.subscriptions[channelName]
+        if (channel != null) {
+            client.realtime.removeChannel(channel)
+        }
     }
 
     private fun RoomDto.toGameRoom(): GameRoom = GameRoom(

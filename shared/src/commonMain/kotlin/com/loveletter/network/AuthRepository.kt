@@ -7,6 +7,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
 
 @Serializable
 data class UserProfile(
@@ -33,7 +35,9 @@ class AuthRepository {
         client.auth.signUpWith(Email) {
             this.email = email
             this.password = password
-            this.data = mapOf("display_name" to displayName)
+            this.data = buildJsonObject {
+                put("display_name", displayName)
+            }
         }
 
         val user = client.auth.currentUserOrNull()
