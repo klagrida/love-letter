@@ -156,19 +156,19 @@ jobs:
         run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Download Linux artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: desktop-linux-${{ steps.version.outputs.VERSION }}
           path: release/linux/
 
       - name: Download Windows artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: desktop-windows-${{ steps.version.outputs.VERSION }}
           path: release/windows/
 
       - name: Download macOS artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: desktop-macos-${{ steps.version.outputs.VERSION }}
           path: release/macos/
