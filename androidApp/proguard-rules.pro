@@ -1,30 +1,9 @@
-# Kotlin
--keep class kotlin.** { *; }
--dontwarn kotlin.**
+# Keep SLF4J classes
+-dontwarn org.slf4j.**
+-keep class org.slf4j.** { *; }
+-keepclassmembers class org.slf4j.** { *; }
 
-# Kotlinx Serialization
--keepattributes *Annotation*, InnerClasses
--dontnote kotlinx.serialization.AnnotationsKt
-
--keepclassmembers class kotlinx.serialization.json.** {
-    *** Companion;
-}
--keepclasseswithmembers class kotlinx.serialization.json.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
-
--keep,includedescriptorclasses class com.loveletter.**$$serializer { *; }
--keepclassmembers class com.loveletter.** {
-    *** Companion;
-}
--keepclasseswithmembers class com.loveletter.** {
-    kotlinx.serialization.KSerializer serializer(...);
-}
-
-# Ktor
--keep class io.ktor.** { *; }
--dontwarn io.ktor.**
-
-# Supabase
--keep class io.github.jan.supabase.** { *; }
--dontwarn io.github.jan.supabase.**
+# SLF4J uses reflection
+-keepattributes *Annotation*
+-keepattributes Signature
+-keepattributes Exceptions
