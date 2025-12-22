@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build DEB package
         run: ./gradlew :desktopApp:packageDeb
@@ -73,7 +73,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build MSI package
         run: ./gradlew :desktopApp:packageMsi
@@ -119,7 +119,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build DMG package
         run: ./gradlew :desktopApp:packageDmg
