@@ -265,4 +265,4 @@ jobs:
         run: ./gradlew :shared:lintKotlin || echo "Lint not configured"
 
       - name: Check Gradle Wrapper
-        uses: gradle/wrapper-validation-action@v2
+        uses: gradle/wrapper-validation-action@v3
