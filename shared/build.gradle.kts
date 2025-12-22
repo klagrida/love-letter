@@ -56,11 +56,11 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
 
                 // Ktor for HTTP client
-                implementation("io.ktor:ktor-client-core:2.3.7")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.7")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7")
-                implementation("io.ktor:ktor-client-websockets:2.3.7")
-                implementation("io.ktor:ktor-client-logging:2.3.7")
+                implementation("io.ktor:ktor-client-core:3.3.3")
+                implementation("io.ktor:ktor-client-content-negotiation:3.3.3")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.3")
+                implementation("io.ktor:ktor-client-websockets:3.3.3")
+                implementation("io.ktor:ktor-client-logging:3.3.3")
 
                 // Supabase
                 implementation("io.github.jan-tennert.supabase:gotrue-kt:2.6.1")
@@ -79,7 +79,7 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-android:2.3.7")
+                implementation("io.ktor:ktor-client-android:3.3.3")
                 implementation("androidx.activity:activity-compose:1.8.2")
             }
         }
@@ -87,14 +87,14 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
-                implementation("io.ktor:ktor-client-cio:2.3.7")
+                implementation("io.ktor:ktor-client-cio:3.3.3")
             }
         }
 
         val jsMain by getting {
             dependencies {
                 implementation(compose.html.core)
-                implementation("io.ktor:ktor-client-js:2.3.7")
+                implementation("io.ktor:ktor-client-js:3.3.3")
             }
         }
 
@@ -107,7 +107,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                implementation("io.ktor:ktor-client-darwin:2.3.7")
+                implementation("io.ktor:ktor-client-darwin:3.3.3")
             }
         }
     }
