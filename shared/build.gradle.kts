@@ -80,7 +80,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-android:2.3.7")
-                implementation("androidx.activity:activity-compose:1.8.2")
+                implementation("androidx.activity:activity-compose:1.12.2")
             }
         }
 
