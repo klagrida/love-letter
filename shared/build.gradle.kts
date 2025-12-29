@@ -63,10 +63,10 @@ kotlin {
                 implementation("io.ktor:ktor-client-logging:2.3.7")
 
                 // Supabase
-                implementation("io.github.jan-tennert.supabase:gotrue-kt:2.6.1")
-                implementation("io.github.jan-tennert.supabase:postgrest-kt:2.6.1")
-                implementation("io.github.jan-tennert.supabase:realtime-kt:2.6.1")
-                implementation("io.github.jan-tennert.supabase:storage-kt:2.6.1")
+                implementation("io.github.jan-tennert.supabase:gotrue-kt:3.2.6")
+                implementation("io.github.jan-tennert.supabase:postgrest-kt:3.2.6")
+                implementation("io.github.jan-tennert.supabase:realtime-kt:3.2.6")
+                implementation("io.github.jan-tennert.supabase:storage-kt:3.2.6")
             }
         }
 
